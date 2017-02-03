@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+ 
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+ 
+    <appender name="mailAppender" class="org.apache.log4j.net.SMTPAppender">
+        <param name="BufferSize" value="50" />
+        <param name="SMTPHost" value="" />
+        <param name="SMTPPort" value="" />
+        <param name="From" value="" />
+        <param name="To" value="" />
+        <param name="Subject" value="Testing Log4j mail notification" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{ISO8601}]%n%n%-5p%n%n%c%n%n%m%n%n" />
+        </layout>
+    </appender>
+    
+    <root>
+        <priority value="info" />
+        <appender-ref ref="mailAppender" />
+    </root>
+</log4j:configuration>
